@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Toolkit.Runtime.Extensions.Unity
 {
-    public static class UnityObjectExtensions 
+    public static class UnityObjectExtensions
     {
         public static void Safe<T>(this T obj, System.Action<T> action) where T : class
         {
