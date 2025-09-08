@@ -1,10 +1,8 @@
-using UnityEngine;
-
-namespace Toolkit.Runtime.Extensions.Unity
+namespace Toolkit.Runtime.Extensions
 {
     public static class UnityObjectExtensions
     {
-        public static void Safe<T>(this T obj, System.Action<T> action) where T : class
+        public static void Safe<T>(this T obj, System.Action<T> action) where T : UnityEngine.Object
         {
             if (obj != null)
             {
@@ -12,7 +10,7 @@ namespace Toolkit.Runtime.Extensions.Unity
             }
         }
 
-        public static void Safe<T>(this T obj, System.Action<T> action, System.Action fallback) where T : class
+        public static void Safe<T>(this T obj, System.Action<T> action, System.Action fallback) where T : UnityEngine.Object
         {
             if (obj != null)
             {

@@ -1,17 +1,18 @@
 {
-"name": "alexander-yu-shamin.toolkit.Editor",
-  "references": [],
-  "optionalUnityReferences": [],
-  "includePlatforms": [
-    "Editor"
-  ],
-  "excludePlatforms": [],
-  "allowUnsafeCode": false,
-  "overrideReferences": false,
-  "precompiledReferences": [],
-  "autoReferenced": true,
-  "defineConstraints": [],
-  "versionDefines": [],
-  "noEngineReferences": false
+    "name": "alexander-yu-shamin.toolkit.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fce0dac941f9a9f4bbae193dbc7699e7"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
-    
