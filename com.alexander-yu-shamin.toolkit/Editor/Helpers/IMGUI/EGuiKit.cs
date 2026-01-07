@@ -1,5 +1,4 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 using Toolkit.Runtime.Helpers.IMGUI;
 using EditorGUILayout = UnityEditor.EditorGUILayout;
@@ -32,7 +31,7 @@ namespace Toolkit.Editor.Helpers.IMGUI
             EditorGUILayout.EndVertical();
         }
 
-        public static void Toogle(string text, bool value, Action<bool> action)
+        public static void Toggle(string text, bool value, Action<bool> action)
         {
             var result = EditorGUILayout.Toggle(value, text);
             action?.Invoke(result);
@@ -51,6 +50,45 @@ namespace Toolkit.Editor.Helpers.IMGUI
             }
 
             return result;
+        }
+
+        public static void ScrollView(ref Vector2 scrollPosition, Action content, params GUILayoutOption[] options)
+        {
+            var result = EditorGUILayout.BeginScrollView(scrollPosition, options);
+            try
+            {
+                content?.Invoke();
+            }
+            finally
+            {
+                EditorGUILayout.EndScrollView();
+            }
+
+            scrollPosition = result;
+        }
+
+        public static bool FoldoutHeaderGroup(bool foldout, string content, Action action, GUIStyle style = null,
+            Action<Rect> menuAction = null, GUIStyle menuIcon = null)
+        {
+            var result = EditorGUILayout.BeginFoldoutHeaderGroup(foldout, content, style, menuAction, menuIcon);
+            action?.Invoke();
+            EditorGUILayout.EndFoldoutHeaderGroup();
+            return result;
+        }
+
+        public static void Space()
+        {
+            EditorGUILayout.Space();
+        }
+
+        public static void Space(float width)
+        {
+            EditorGUILayout.Space(width);
+        }
+
+        public static void Space(float width, bool expand)
+        {
+            EditorGUILayout.Space(width, expand);
         }
     }
 }

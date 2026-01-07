@@ -47,24 +47,42 @@ namespace Toolkit.Runtime.Helpers.IMGUI
             }
         }
 
+        public static void Button(GUIContent content, Action action, GUIStyle style, params GUILayoutOption[] options)
+        {
+            if (GUILayout.Button(content, style, options))
+            {
+                action?.Invoke();
+            }
+        }
+
         public static void Button(string text, Action action, params GUILayoutOption[] options)
         {
-            Button(text, action, GUIStyle.none, options);
+            Button(text, action, GUI.skin.button, options);
+        }
+
+        public static void Button(GUIContent content, Action action, params GUILayoutOption[] options)
+        {
+            Button(content, action, GUI.skin.button, options);
         }
 
         public static void Button(bool isEnabled, string text, Action action, params GUILayoutOption[] options)
         {
-            Button(isEnabled, text, action, GUIStyle.none, options);
+            Button(isEnabled, text, action, GUI.skin.button, options);
         }
 
-        public static void Button(string text, Action action)
+        public static void FlexibleSpace()
         {
-            Button(text, action, GUIStyle.none);
+            GUILayout.FlexibleSpace();
         }
 
-        public static void Button(bool isEnabled, string text, Action action)
+        public static void Label(string text, GUIStyle style, params GUILayoutOption[] options)
         {
-            Button(isEnabled, text, action, GUIStyle.none);
+            GUILayout.Label(text, style, options);
+        }
+
+        public static void Label(string text, params GUILayoutOption[] options)
+        {
+            Label(text, GUI.skin.label);
         }
     }
 }

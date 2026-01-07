@@ -9,5 +9,15 @@ namespace Toolkit.Runtime.Extensions
         {
             return enumerable == null || !enumerable.Any();
         }
+
+        public static IEnumerable<T> AsIEnumerable<T>(this T item)
+        {
+            return new[] { item };
+        }
+
+        public static List<T> AsList<T>(this T item)
+        {
+            return new List<T> { item };
+        }
     }
 }
